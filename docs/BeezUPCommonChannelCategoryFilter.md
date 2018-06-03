@@ -1,0 +1,8 @@
+# SwaggerClient::BeezUPCommonChannelCategoryFilter
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**category_path** | **Array&lt;String&gt;** | Indicates on which channel category path you want to make the filter | [optional] 
+
+
