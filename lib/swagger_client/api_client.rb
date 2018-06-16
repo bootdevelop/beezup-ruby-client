@@ -68,11 +68,11 @@ module SwaggerClient
                response.status_message
         end
       end
-
+      
       if opts[:return_type]
         data = deserialize(response, opts[:return_type])
       else
-        data = nil
+        data = data
       end
       return data, response.code, response.headers
     end
@@ -179,6 +179,7 @@ module SwaggerClient
     # @param [String] return_type Return type
     # @return [Mixed] Data in a particular type
     def convert_to_type(data, return_type)
+      return data
       return nil if data.nil?
       case return_type
       when 'String'
@@ -197,7 +198,7 @@ module SwaggerClient
         Date.parse data
       when 'Object'
         # generic object (usually a Hash), return directly
-        data
+        data.to_s
       when /\AArray<(.+)>\z/
         # e.g. Array<Pet>
         sub_type = $1
